@@ -1,0 +1,77 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:define name="content">
+        <p:commandButton value="Restart Game" update="table"
+                         action="#{connect4Bean.restartGame()}">
+        </p:commandButton>
+        <br></br>
+        <br></br>
+        <p:inputNumber minValue="1" maxValue="8" decimalPlaces="0" value="#{connect4Bean.column}"/>
+        <p:commandButton value="Make move" update="table"
+                         action="#{connect4Bean.doTurn()}">
+        </p:commandButton>
+        <br></br>
+        <br></br>
+
+        <h1>Game field</h1>
+
+        <p:dataTable id="table" var="boardRow" value="#{connect4Bean.board}">
+            <p:column headerText="1" style="width: 20px; height: 20px; text-align: center;">
+                <p:outputLabel value="-" rendered="#{boardRow[0]==1}"
+                               style="background-color:green; font-family: Courier New;" required="true"
+                               label="number"/>
+                <p:outputLabel value="+" rendered="#{boardRow[0]==2}"
+                               style="background-color:red; font-family: Courier New;" required="true" label="number"/>
+            </p:column>
+            <p:column headerText="2" style="width: 20px; height: 20px; ttext-align: center;">
+                <p:outputLabel value="-" rendered="#{boardRow[1]==1}"
+                               style="background-color:green; font-family: Courier New;" required="true"
+                               label="number"/>
+                <p:outputLabel value="+" rendered="#{boardRow[1]==2}"
+                               style="background-color:red; font-family: Courier New;" required="true" label="number"/>
+            </p:column>
+            <p:column headerText="3" style="width: 20px; height: 20px; text-align: center;">
+                <p:outputLabel value="-" rendered="#{boardRow[2]==1}"
+                               style="background-color:green; font-family: Courier New;" required="true"
+                               label="number"/>
+                <p:outputLabel value="+" rendered="#{boardRow[2]==2}"
+                               style="background-color:red; font-family: Courier New;" required="true" label="number"/>
+            </p:column>
+            <p:column headerText="4" style="width: 20px; height: 20px; ttext-align: center;">
+                <p:outputLabel value="-" rendered="#{boardRow[3]==1}"
+                               style="background-color:green; font-family: Courier New;" required="true"
+                               label="number"/>
+                <p:outputLabel value="+" rendered="#{boardRow[3]==2}"
+                               style="background-color:red; font-family: Courier New;" required="true" label="number"/>
+            </p:column>
+            <p:column headerText="5" style="width: 20px; height: 20px; ttext-align: center;">
+                <p:outputLabel value="-" rendered="#{boardRow[4]==1}"
+                               style="background-color:green; font-family: Courier New;" required="true"
+                               label="number"/>
+                <p:outputLabel value="+" rendered="#{boardRow[4]==2}"
+                               style="background-color:red; font-family: Courier New;" required="true" label="number"/>
+            </p:column>
+            <p:column headerText="6" style="width: 20px; height: 20px; ttext-align: center;">
+                <p:outputLabel value="-" rendered="#{boardRow[5]==1}"
+                               style="background-color:green; font-family: Courier New;" required="true"
+                               label="number"/>
+                <p:outputLabel value="+" rendered="#{boardRow[5]==2}"
+                               style="background-color:red; font-family: Courier New;" required="true" label="number"/>
+            </p:column>
+            <p:column headerText="7" style="width: 20px; height: 20px; ttext-align: center;">
+                <p:outputLabel value="-" rendered="#{boardRow[6]==1}"
+                               style="background-color:green; font-family: Courier New;" required="true"
+                               label="number"/>
+                <p:outputLabel value="+" rendered="#{boardRow[6]==2}"
+                               style="background-color:red; font-family: Courier New;" required="true" label="number"/>
+            </p:column>
+        </p:dataTable>
+        <br></br>
+        <br></br>
+
+        <p:outputLabel
+
+    </ui:define>
+</ui:composition>

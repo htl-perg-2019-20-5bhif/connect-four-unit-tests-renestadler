@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-action>#{navigationBean.showPage}</from-action>
+            <from-outcome>customer</from-outcome>
+            <to-view-id>/customer.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{navigationController.showPage}</from-action>
+            <from-outcome>customerCreator</from-outcome>
+            <to-view-id>/customerCreator.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{navigationController.showPage}</from-action>
+            <from-outcome>bike</from-outcome>
+            <to-view-id>/bike.index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{navigationController.showPage}</from-action>
+            <from-outcome>bikeCreator</from-outcome>
+            <to-view-id>/bikeCreator.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{navigationBean.showPage}</from-action>
+            <from-outcome>rentals</from-outcome>
+            <to-view-id>/rentals.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{navigationBean.showPage}</from-action>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

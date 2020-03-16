@@ -153,5 +153,12 @@ namespace ConnectFour.Logic
 
             throw new InvalidOperationException("Column is full");
         }
+
+        public byte[,] GetBoard()
+        {
+            var destination = new byte[7, 6];
+            Array.Copy(board, 0, destination, 0, board.Length);
+            return destination;
+        }
     }
 }

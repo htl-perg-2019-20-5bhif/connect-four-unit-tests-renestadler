@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29820.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFour.UI", "ConnectFour.UI\ConnectFour.UI.csproj", "{94D31553-A05E-45A1-9DDD-F0B1C4484681}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFour.Logic", "ConnectFour.Logic\ConnectFour.Logic.csproj", "{6272E12D-4FA4-42F1-BB2D-A85E76D1E341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFour.Logic", "ConnectFour.Logic\ConnectFour.Logic.csproj", "{6272E12D-4FA4-42F1-BB2D-A85E76D1E341}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectFour.Tests", "ConnectFour.Tests\ConnectFour.Tests.csproj", "{C84E8E54-07F8-4ED9-B042-42E974127CB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFour.Tests", "ConnectFour.Tests\ConnectFour.Tests.csproj", "{C84E8E54-07F8-4ED9-B042-42E974127CB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFour.API", "ConnectFour.API\ConnectFour.API.csproj", "{AE5098B0-114C-4477-A795-905B77336A90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFour.UI", "ConnectFour.UI\ConnectFour.UI.csproj", "{8732D1FD-79BA-4110-BCCC-A19CD573A5C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{94D31553-A05E-45A1-9DDD-F0B1C4484681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94D31553-A05E-45A1-9DDD-F0B1C4484681}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94D31553-A05E-45A1-9DDD-F0B1C4484681}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94D31553-A05E-45A1-9DDD-F0B1C4484681}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6272E12D-4FA4-42F1-BB2D-A85E76D1E341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6272E12D-4FA4-42F1-BB2D-A85E76D1E341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6272E12D-4FA4-42F1-BB2D-A85E76D1E341}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +25,14 @@ Global
 		{C84E8E54-07F8-4ED9-B042-42E974127CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C84E8E54-07F8-4ED9-B042-42E974127CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C84E8E54-07F8-4ED9-B042-42E974127CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE5098B0-114C-4477-A795-905B77336A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5098B0-114C-4477-A795-905B77336A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5098B0-114C-4477-A795-905B77336A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5098B0-114C-4477-A795-905B77336A90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8732D1FD-79BA-4110-BCCC-A19CD573A5C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8732D1FD-79BA-4110-BCCC-A19CD573A5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8732D1FD-79BA-4110-BCCC-A19CD573A5C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8732D1FD-79BA-4110-BCCC-A19CD573A5C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
