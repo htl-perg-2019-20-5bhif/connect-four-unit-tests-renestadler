@@ -3,13 +3,13 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets">
     <ui:define name="content">
-        <p:commandButton value="Restart Game" update="table"
+        <p:commandButton value="Restart Game" update="table logs"
                          action="#{connect4Bean.restartGame()}">
         </p:commandButton>
         <br></br>
         <br></br>
         <p:inputNumber minValue="1" maxValue="8" decimalPlaces="0" value="#{connect4Bean.column}"/>
-        <p:commandButton value="Make move" update="table"
+        <p:commandButton value="Make move" update="table logs"
                          action="#{connect4Bean.doTurn()}">
         </p:commandButton>
         <br></br>
@@ -71,7 +71,7 @@
         <br></br>
         <br></br>
 
-        <p:outputLabel
+        <p:outputLabel value="#{connect4Bean.logs}" id="logs"/>
 
     </ui:define>
 </ui:composition>
