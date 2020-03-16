@@ -1,9 +1,7 @@
-﻿using Prism.Commands;
+﻿using Newtonsoft.Json;
 using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,7 +13,19 @@ namespace ConnectFour.UI
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        public ObservableCollection<ObservableCollection<byte>> GameBoard { get; set; }
+        //public ObservableCollection<ObservableCollection<byte>> GameBoard { get; set; }
+
+
+        private byte[,] GameBoardValue;
+        public byte[,] GameBoard
+        {
+            get => GameBoardValue;
+            set
+            {
+                GameBoardValue = value;
+                OnPropertyChanged(nameof(GameBoard));
+            }
+        }
 
 
         private void OnPropertyChanged(string propertyName) =>
@@ -44,44 +54,25 @@ namespace ConnectFour.UI
         {
             InitializeComponent();
             DataContext = this;
-            InitAsync();
+            Init();
         }
 
-        /*private void convertArrayToObservableCollection(byte[,] arr)
+        private async void Init()
         {
-            ObservableCollection<ObservableCollection<byte>> collection = new ObservableCollection<ObservableCollection<byte>>();
-            for(int row = 0; row < 6; i++)
-            {
-                collection.Add(new ObservableCollection<byte>());
-                for(int col = 0; col < 7; col++)
-                {
-                    collection[row].Add(arr[row, col]);
-                }
-            }
-        }*/
-
-        private async void InitAsync()
-        {
-            System.Diagnostics.Debug.WriteLine($"Init ##############");
             var isSuccess = await StartGameAsync();
-            System.Diagnostics.Debug.WriteLine($"Success: {isSuccess} ##############");
             if (!isSuccess)
             {
-                System.Diagnostics.Debug.WriteLine($"Game not started ##############");
                 StatusMessage = "Game not started";
-                    return;
+                return;
             }
-            System.Diagnostics.Debug.WriteLine($"Game started ##############");
             GetBoardAsync();
         }
 
         private async void GetBoardAsync()
         {
-            //HttpClient.asdf
             var boardString = await HttpClient.GetStringAsync("/Connect4Game");
-            GameBoard = JsonSerializer.Deserialize<ObservableCollection<ObservableCollection<byte>>>(boardString);
-
-            System.Diagnostics.Debug.WriteLine($"Board: {boardString} ##############");
+            System.Diagnostics.Debug.WriteLine(boardString);
+            GameBoard = JsonConvert.DeserializeObject<byte[,]>(boardString);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -92,15 +83,20 @@ namespace ConnectFour.UI
 
         private async void OnSetStoneAsync(int? row)
         {
-            //var rowDTO = new RowDTO { row = row }();
-            //var content = new StringContent(JsonSerializer.Serialize(rowDTO), Encoding.UTF8, "application/json");
             var rowResponse = await HttpClient.PostAsync($"/Connect4Game/{row}", null);
+            var content = await rowResponse.Content.ReadAsStringAsync();
             GetBoardAsync();
+            if (content.Equals("1") || content.Equals("2"))
+            {
+                StatusMessage = $"Player {content} wins!";
+                return;
+            }
             if (!rowResponse.IsSuccessStatusCode)
             {
-                StatusMessage = rowResponse.ReasonPhrase;
+                StatusMessage = content;
+                return;
             }
-            //pokemonResponse.EnsureSuccessStatusCode();
+            StatusMessage = "";
         }
 
         private async Task<bool> StartGameAsync()
